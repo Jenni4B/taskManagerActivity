@@ -1,0 +1,17 @@
+header {
+    margin: 10px;
+}
+
+#taskBox-header{
+    margin: 10px;
+}
+
+#task-box {
+    border-width: 1px;
+    border-style: solid;
+    border-color: blue;
+    height: 200px;
+    width: 300px;
+    padding: 10px;
+    margin: 10px;
+}
