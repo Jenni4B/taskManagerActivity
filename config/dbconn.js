@@ -5,7 +5,7 @@ import 'dotenv/config';
 
 // add SEQUELIZE CONNECTION
 const sequelizeConnection = new Sequelize(
-    process.env.DB_NAME,
+    process.env.DB_NAME,  // retrieves the name, user, and password from the env file
     process.env.DB_USER,
     process.env.DB_PASSWORD,
     {
@@ -14,6 +14,6 @@ const sequelizeConnection = new Sequelize(
     }
 );
 
-console.log("DATABASE is connected?", true);
+console.log("DATABASE:: connected? ", true);
 
 export default sequelizeConnection;

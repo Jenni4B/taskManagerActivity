@@ -1,15 +1,27 @@
-import express from 'express';
-import taskRoutes from './routes/task.js';
+import express from'express';
+import path from 'path';
+import taskRoutes from './routes/tasks.js';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 
-app.use(express.json());
+// Set the views directory
+app.set('view engine', 'ejs'); 
+app.set('views', path.join(__dirname, 'views'));
 
-app.use('/tasks', taskRoutes);
+// When processing forms with the server, there are white spaces that may be encoded
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json()); 
 
-const PORT = process.env.PORT || 3000;
+// Set the public directory and expected json data response 
+app.use(express.static('public'));
+app.use('/api', taskRoutes); // do /api to get to the route and run TaskRoutes
 
-app.listen(PORT, () =>{
-    console.log(`Server is running on port http://localhost:${PORT}`)
+const PORT = process.env.APP_PORT || 9000;
+
+app.listen(PORT, () => {
+    console.log(`Server is running on port http://localhost:${PORT}`);
 });
-
