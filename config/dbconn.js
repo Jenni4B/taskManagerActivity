@@ -14,6 +14,6 @@ const sequelizeConnection = new Sequelize(
     }
 );
 
-console.log("DATABASE:: connected? ", true);
+console.log("DATABASE:: connected? ", true); // Confirms the task_manager database is connected to the app
 
 export default sequelizeConnection;
