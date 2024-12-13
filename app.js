@@ -14,7 +14,7 @@ app.set('views', path.join(__dirname, 'views'));
 
 // When processing forms with the server, there are white spaces that may be encoded
 app.use(express.urlencoded({ extended: true }));
-app.use(express.json()); 
+app.use(express.json());
 
 // Set the public directory and expected json data response 
 app.use(express.static('public'));
